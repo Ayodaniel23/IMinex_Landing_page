@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="static/css/landing.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
       
@@ -34,15 +33,19 @@
             background: rgba(0, 0, 0, 0.5); /* Dark overlay */
             z-index: 1;
         }
-        
-        /* navbar sections */
+            
+        /* Ensure the navbar is correctly styled after removal */
         .navbar {
-            border: none;
-            position: relative;
-            z-index: 2;
-            background: transparent;
+            position: fixed; /* Fix the navbar to the top */
+            top: 0; /* Align it to the top of the viewport */
+            left: 0; /* Align it to the left of the viewport */
+            width: 100%; /* Make it span the entire width */
+            z-index: 1020; /* Ensure it stays above other content */
+            background-color: #343a40 !important; /* Dark background color */
+            padding: 0 15px 10px 0; /* Maintain padding */
         }
 
+        /* Adjust brand and button positioning if necessary */
         .navbar-brand {
             font-size: 1.5rem;
             color: #fff;
@@ -50,9 +53,9 @@
             position: absolute;
             left: 2rem; /* Adjust distance from the left */
             top: 50%; /* Center vertically */
-            transform: translateY(-50%); /* Adjust vertical alignment */
+            transform: translateY(-50%); /* Adjust vertical alignment */        
         }
-        
+
         .navbar-nav {
             display: flex;
             align-items: center;
@@ -60,14 +63,14 @@
             flex-grow: 1;
             list-style: none; /* Remove default list style */
             padding-left: 0; /* Remove default padding */
-            margin: 0; /* Remove default margin */
+            margin-top: 20px; /* Remove default margin */
         }
-        
+
         .nav-link.active {
             color: #007bff; /* Active tab text color */
             border-color: #007bff; /* Bottom border color for active tab */
         }
-        
+
         .navbar-nav .nav-link {
             color: #fff;
             padding: 0.5rem 1rem;
@@ -76,7 +79,7 @@
             margin: 0 1rem; /* Space between links */
             border: 1px solid transparent; /* Invisible border for spacing */
         }
-        
+
         .navbar-nav .nav-link:hover {
             color: #007bff;
         }
@@ -89,13 +92,12 @@
             border-radius: 0.25rem;
             text-decoration: none;
             font-size: 1rem;
-            top: 50%;
-            margin-left: 1rem; /* Space between button and links */
             position: absolute; /* Position absolutely within navbar */
             right: 2rem; /* Adjust distance from the right */
+            top: 50%;
             transform: translateY(-50%); /* Adjust vertical alignment */
         }
-        
+
         .btn-primary:hover {
             background-color: #0056b3;
         }
@@ -103,12 +105,6 @@
         .container {
             position: relative;
             z-index: 2;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
         }
         
         /* Hero section buttons */
@@ -140,22 +136,43 @@
             color: #000;
         }
 
-        @media (max-width: 767.98px) {
-            navbar-toggler {
-                display: block; /* Ensure toggler is visible */
+        /* Ensure the toggler is on the right on mobile screens */
+        @media (max-width: 991.98px) {
+            .navbar-toggler {
+                margin-left: auto; /* Push toggler to the right */
+            }
+
+            .navbar {
+                padding: 0 15px 15px 0; /* Maintain padding */
+            }
+
+            .navbar-collapse {
+                width: 100%; /* Ensure collapsible content takes full width */
+            }
+
+            /* Align toggler with brand and other items */
+            .navbar-brand, .navbar-toggler {
+                position: relative;
+                transform: none; /* Reset vertical alignment */
             }
         }
+            
+            .cta-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
     </style>
 </head>
 <body>
     <div class="bg-img">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg bg-transparent">
             <a class="navbar-brand" href="#">IMinex</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto"> <!-- Center the nav links -->
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home</a>
                     </li>
@@ -169,7 +186,7 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <a href="signup.html" class="btn btn-primary ml-3">Get Started</a> <!-- Sign up button -->
+                <a href="signup.html" class="btn btn-primary ml-3">Get Started</a>
             </div>
         </nav>
 
@@ -180,7 +197,7 @@
                     <div class="col-lg-8">
                         <h1 class="hero-title">Welcome to IMinex</h1>
                         <p class="hero-description">
-                            Double your investment with our intelligent machines, designed to maximize your returns with ease.
+                            Transform your financial future with IMinex. Our cutting-edge machines are engineered to double your investment effortlessly, ensuring you achieve your financial goals with ease and confidence.
                         </p>
                         <div class="cta-buttons">
                             <a href="signup.html" class="btn btn-main">Get Started</a>
@@ -233,107 +250,119 @@
     <!-- Investment Plans Section -->
     <section id="pricing" class="pricing section">
         <div class="container text-center">
-            <h2 class="section-title">Our Auto-Investment Solutions</h2>
+            <h2 class="section-title">Explore Our Investment Options</h2>
             <p class="section-description">
-                Choose the auto-investment solution that fits your needs and start maximizing your returns. Note: Trial machines are available, but withdrawals are only possible with a full solution purchase.
+                Choose from our selection of investment plans, each powered by our advanced investment machines. Our technology is designed to maximize your returns efficiently and effectively. All plans offer equal access to the same state-of-the-art investment tools.
             </p>
             <div class="pricing-wrapper d-flex flex-wrap justify-content-center">
                 <div class="pricing-box">
-                    <h3 class="pricing-title">Basic Solution</h3>
+                    <img src="path/to/basic-solution-image.jpg" alt="Investment Plan A" class="pricing-image">
+                    <h3 class="pricing-title">Investment Plan A</h3>
                     <p class="pricing-price">$10 / month</p>
-                    <ul class="pricing-features">
-                        <li>Automated Stock Investments</li>
-                        <li>Basic Performance Reports</li>
-                        <li>24/7 Customer Support</li>
-                    </ul>
+                    <p class="pricing-description">
+                        Our basic plan offers access to our foundational investment machines that manage your funds with efficiency and accuracy. Ideal for users looking to start with a straightforward investment approach.
+                    </p>
                     <a href="#signup" class="btn btn-main">Get Started</a>
                 </div>
                 <div class="pricing-box">
-                    <h3 class="pricing-title">Standard Solution</h3>
+                    <img src="path/to/standard-solution-image.jpg" alt="Investment Plan B" class="pricing-image">
+                    <h3 class="pricing-title">Investment Plan B</h3>
                     <p class="pricing-price">$50 / month</p>
-                    <ul class="pricing-features">
-                        <li>Advanced Investment Strategies</li>
-                        <li>Monthly Performance Updates</li>
-                        <li>Priority Customer Support</li>
-                    </ul>
+                    <p class="pricing-description">
+                        Upgrade to our advanced plan for a more strategic approach to investments. This option includes enhanced algorithms and more frequent performance updates to help you stay informed and optimize your returns.
+                    </p>
                     <a href="#signup" class="btn btn-main">Get Started</a>
                 </div>
                 <div class="pricing-box">
-                    <h3 class="pricing-title">Premium Solution</h3>
+                    <img src="path/to/premium-solution-image.jpg" alt="Investment Plan C" class="pricing-image">
+                    <h3 class="pricing-title">Investment Plan C</h3>
                     <p class="pricing-price">$100 / month</p>
-                    <ul class="pricing-features">
-                        <li>Personalized Investment Solutions</li>
-                        <li>Weekly Performance Reports</li>
-                        <li>Dedicated Account Manager</li>
-                    </ul>
+                    <p class="pricing-description">
+                        Our premium plan provides the highest level of personalized investment management. Benefit from custom solutions tailored to your goals, detailed weekly reviews, and dedicated support for an optimized investment experience.
+                    </p>
                     <a href="#signup" class="btn btn-main">Get Started</a>
                 </div>
             </div>
-        </div>
-    </section>
-          
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>We’d love to hear from you. Feel free to reach out for any inquiries or support.</p>
-            <form class="contact-form">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                <textarea class="form-control" name="message" rows="6" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
         </div>
     </section>
 
+
+
     <!-- Footer -->
-    <footer class="py-4 bg-dark text-light">
+    <footer class="py-4 bg-black text-light">
         <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-            <!-- IMinex Details -->
-            <h5 class="text-uppercase mb-3">IMinex</h5>
-            <p class="mb-2">Empowering your investments with cutting-edge technology. Grow your portfolio with our innovative investment machines.</p>
-            <p class="mb-1"><strong>Address:</strong> 123 Investment St., FinTech City, FX</p>
-            <p class="mb-1"><strong>Email:</strong> <a href="mailto:support@iminex.com" class="text-light">support@iminex.com</a></p>
-            <p class="mb-1"><strong>Phone:</strong> +1 (234) 567-890</p>
+            <div class="row">
+                <!-- Company Info with Icon -->
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-uppercase mb-2">IMinex</h5>
+                    <p class="mb-2">Empowering investments with intelligent automation.</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:support@iminex.com" class="text-light">support@iminex.com</a></p>
+                </div>
+
+                <!-- Quick Links with Icons and Reduced Space -->
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                    <h5 class="text-uppercase mb-2">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="/contact" class="text-light">
+                                <i class="bi bi-envelope me-2"></i>Contact Us
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/faq" class="text-light">
+                                <i class="bi bi-question-circle me-2"></i>FAQ
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/about" class="text-light">
+                                <i class="bi bi-info-circle me-2"></i>About Us
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/services" class="text-light">
+                                <i class="bi bi-briefcase-fill me-2"></i>Our Services
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Developer Contact with Professional Icons -->
+                <div class="col-12 col-md-4">
+                    <h5 class="text-uppercase mb-2">Developer</h5>
+                    <p class="mb-2"><i class="bi bi-code-slash me-2"></i>For technical queries, contact the developer:</p>
+                    <p class="mb-2"><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:developer@iminex.com" class="text-light">developer@iminex.com</a></p>
+
+                    <!-- Professional Social Media Icons with Reduced Gaps -->
+                    <h5 class="text-uppercase mb-2">Follow Us</h5>
+                    <ul class="list-unstyled d-flex gap-2">
+                        <li><a href="https://youtube.com/iminex" class="text-light"><i class="bi bi-youtube"></i></a></li>
+                        <li><a href="https://facebook.com/iminex" class="text-light"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/iminex" class="text-light"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="https://linkedin.com/company/iminex" class="text-light"><i class="bi bi-linkedin"></i></a></li>
+                        <li><a href="https://instagram.com/iminex" class="text-light"><i class="bi bi-instagram"></i></a></li>
+                    </ul>
+                </div>
             </div>
-    
-            <div class="col-12 col-md-4 mb-3 mb-md-0">
-            <!-- Quick Links -->
-            <h5 class="text-uppercase mb-3">Quick Links</h5>
-            <ul class="list-unstyled">
-                <li><a href="#home" class="text-light">Home</a></li>
-                <li><a href="#features" class="text-light">Features</a></li>
-                <li><a href="#how-it-works" class="text-light">How It Works</a></li>
-                <li><a href="#contact" class="text-light">Contact Us</a></li>
-            </ul>
-            </div>
-    
-            <div class="col-12 col-md-4">
-            <!-- Social Media & Legal -->
-            <h5 class="text-uppercase mb-3">Follow Us</h5>
-            <ul class="list-unstyled d-flex gap-3 mb-4">
-                <li><a href="https://youtube.com/iminex" class="text-light"><i class="bi bi-youtube"></i></a></li>
-                <li><a href="https://facebook.com/iminex" class="text-light"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="https://twitter.com/iminex" class="text-light"><i class="bi bi-twitter"></i></a></li>
-                <li><a href="https://linkedin.com/company/iminex" class="text-light"><i class="bi bi-linkedin"></i></a></li>
-                <li><a href="https://instagram.com/iminex" class="text-light"><i class="bi bi-instagram"></i></a></li>
-            </ul>
-            <h5 class="text-uppercase mb-3">Legal</h5>
-            <ul class="list-unstyled">
-                <li><a href="#terms" class="text-light">Terms of Service</a></li>
-                <li><a href="#privacy" class="text-light">Privacy Policy</a></li>
-                <li><a href="#cookies" class="text-light">Cookie Policy</a></li>
-            </ul>
-            </div>
-        </div>
-        <div class="text-center mt-4">
-            <p class="mb-1">&copy; 2024 IMinex. All Rights Reserved.</p>
+
+            <!-- Footer Bottom with Dark Top Border -->
+            <div class="mt-3 pt-3" style="border-top: 1px solid rgba(255, 255, 255, 0.5);">
+                <div class="text-center">
+                    <p class="mb-0">&copy; 2024 IMinex. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Scroll to Top Button -->
+    <a id="scrollToTopBtn" href="#">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/landing.js"></script>
 </body>
 </html>
