@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #3498db;
+    --background-dark: #333;
+    --background-light: #f8f9fa;
+}
+
+
 /* General Styles */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap');
 
@@ -6,6 +14,10 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+}
+
+body {
+    padding-top: 60px; /* Height of the fixed navbar (adjust as needed) */
 }
 
 /* Hero Section */
@@ -132,7 +144,7 @@
 
 /* Feature Icon */
 .feature-icon {
-    font-size: 2rem; /* Adjust icon size */
+    font-size: 3.5rem; /* Adjust icon size */
     margin-bottom: 15px; /* Space below the icon */
 }
 
@@ -179,6 +191,13 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
 }
 
+.pricing-image {
+    width: 100%;
+    height: 28vh;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
 .pricing-title {
     font-size: 1.5rem;
     margin-bottom: 10px;
@@ -189,18 +208,6 @@
     font-size: 2rem;
     color: #007bff; /* Highlight color for price */
     margin-bottom: 20px;
-}
-
-.pricing-features {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    color: #e9ecef; /* Light color for features */
-}
-
-.pricing-features li {
-    margin-bottom: 10px;
 }
 
 .btn-main {
@@ -217,102 +224,43 @@
     background-color: #0056b3;
 }
 
-/* Contact Section Styles */
-.contact-section {
-    text-align: center; /* Center the text */
-    padding: 80px 0; /* Add padding to the section */
-    background-color: #1e1e1e; /* Dark theme background */
-    color: #fff; /* White text color */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    width: 40px; /* Size of the button */
+    height: 40px; /* Size of the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+    font-size: 18px; /* Icon size */
+    text-align: center;
+}
+#scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+#scrollToTopBtn:hover {
+    background-color: #3498db; /* Change color on hover */
+}
+#scrollToTopBtn i {
+    margin: 0; /* Center the icon */
 }
 
-.contact-section h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    position: relative; /* Required for positioning pseudo-elements */
-    display: inline-block; /* Ensure underline only affects the text */
-    margin-bottom: 20px; /* Space below the text */
+@media (max-width: 991.98px) {
+    .navbar .btn-primary {
+        display: none; /* Hide the button on mobile view */
+    }
 }
 
-.contact-section h2::after {
-    content: '';
-    display: block;
-    width: 100px; /* Adjust the width as needed */
-    height: 4px; /* Height of the underline */
-    background-color: #3498db; /* Primary color for the underline */
-    position: absolute;
-    left: 50%;
-    bottom: -10px; /* Position it below the text */
-    transform: translateX(-50%); /* Center the underline */
-    border-radius: 2px; /* Optional: adds slight rounding to the ends */
-}
-
-.contact-section p {
-    font-size: 1.2rem;
-    color: #ccc; /* Lighter text color for description */
-    margin-bottom: 30px; /* Space below the paragraph */
-}
-
-.contact-form {
-    max-width: 600px; /* Max width for the form */
-    margin: 0 auto; /* Center the form */
-}
-
-.contact-form input,
-.contact-form textarea {
-    background-color: #333; /* Dark background for input fields */
-    color: #fff; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 0; /* Remove border-radius */
-    padding: 15px; /* Add padding */
-    width: calc(100% - 30px); /* Full width minus padding */
-    box-sizing: border-box; /* Include padding and border in width */
-    margin-bottom: 15px; /* Space between fields */
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none; /* Remove focus outline */
-    background-color: #444; /* Slightly lighter background on focus */
-}
-
-.contact-form button {
-    background-color: #3498db; /* Primary color for the button */
-    color: #fff; /* White text color */
-    border: none; /* Remove border */
-    padding: 15px; /* Padding inside the button */
-    border-radius: 0; /* Remove border-radius */
-    width: 13%; /* Adjust width as needed */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
-    display: block; /* Ensure block layout */
-    margin: 16.5rem 43.10rem; /* Center the button horizontally */
-}
-
-.contact-form button:hover {
-    background-color: #2980b9; /* Darker shade on hover */
-}
-
-footer {
-    background-color: #343a40; /* Dark background */
-}
-
-footer a {
-    color: #f8f9fa; /* Light text color for links */
-}
-
-footer a:hover {
-    color: #3498db; /* Blue color on hover */
-}
-
-footer h5 {
-    color: #f8f9fa; /* Light color for section headings */
-}
-
-footer .text-primary {
-    color: #3498db; /* Primary color */
-}
-
-/* Responsive adjustments */
 @media (max-width: 767.98px) {
     .hero-title {
         font-size: 2.5rem;
@@ -341,44 +289,9 @@ footer .text-primary {
         max-width: 100%; /* Full width on small screens */
         flex: 1 1 100%; /* Flex properties for single column layout */
     }
-
-    .navbar {
-        padding: 1rem; /* Reduce padding for smaller screens */
-    }
-
-    .navbar-nav {
-        display: block; /* Stack nav items vertically */
-        text-align: center; /* Center text in nav items */
-    }
-
-    .btn-primary {
-        position: static; /* Reset position for button on small screens */
-        margin-left: 0; /* Remove margin */
-        margin-top: 1rem; /* Add top margin */
-    }
-
-    .contact-form button {
-        background-color: #3498db; /* Primary color for the button */
-        color: #fff; /* White text color */
-        border: none; /* Remove border */
-        padding: 15px; /* Padding inside the button */
-        border-radius: 0; /* Remove border-radius */
-        width: 30%; /* Adjust width as needed */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background-color 0.3s ease; /* Smooth transition */
-        display: block; /* Ensure block layout */
-        margin: 17.5rem 21.2rem; /* Center the button horizontally */
-    }
-
-    .contact-section {
-        text-align: center; /* Center the text */
-        padding: 70px 0; /* Add padding to the section */
-        background-color: #1e1e1e; /* Dark theme background */
-        color: #fff; /* White text color */
-    }
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 991.98px) {
     .section-title {
         font-size: 2rem; /* Adjust title size for medium screens */
     }
@@ -389,354 +302,5 @@ footer .text-primary {
 
     .pricing-box {
         width: 100%; /* Full width on smaller screens */
-    }
-}
-
-
-/* Importing Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap');
-
-/* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
-}
-
-/* Background Image */
-.bg-img {
-    background: url('static/images/bg.png') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.bg-img::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: 1;
-}
-
-/* Navbar Styles */
-.navbar {
-    position: relative;
-    z-index: 2;
-    background: transparent;
-    padding: 1.5rem 2rem; /* Adjust padding for desktop */
-    border-bottom: 1px solid #ddd; /* Optional subtle border */
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    position: absolute;
-    left: 2rem; /* Adjust distance from the left */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust vertical alignment */
-}
-
-.navbar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center nav links horizontally */
-    flex-grow: 1;
-    list-style: none; /* Remove default list style */
-    padding-left: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-}
-
-.navbar-nav .nav-link {
-    color: #fff;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 0 1rem; /* Space between links */
-}
-
-.navbar-nav .nav-link:hover {
-    color: #007bff;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    font-size: 1rem;
-    top: 50%;
-    margin-left: 1rem; /* Space between button and links */
-    position: absolute; /* Position absolutely within navbar */
-    right: 2rem; /* Adjust distance from the right */
-    transform: translateY(-50%); /* Adjust vertical alignment */
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-/* Hero Section */
-#hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    position: relative;
-}
-
-.hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.hero-description {
-    font-size: 1.25rem;
-    color: #ddd;
-    margin-bottom: 30px;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.btn-main, .btn-secondary {
-    padding: 10px 30px;
-    font-size: 1.2rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-main {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.btn-main:hover {
-    background-color: #0056b3;
-}
-
-.btn-secondary {
-    color: #fff;
-    border: 2px solid #fff;
-    background-color: transparent;
-}
-
-.btn-secondary:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-/* Features Section */
-.features {
-    background-color: #333; /* Dark background color */
-    padding: 60px 0; /* Padding for top and bottom */
-    color: #fff; /* White text color */
-}
-
-.features .container i {
-    color: #3498db;
-}
-
-.features .container {
-    max-width: 1200px; /* Maximum width for the container */
-    margin: 0 auto; /* Centering the container */
-    text-align: center; /* Center text within the container */
-}
-
-.section-title {
-    position: relative;
-    text-align: center;
-    margin-bottom: 40px; /* Space below the title */
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px; /* Width of the border */
-    height: 4px; /* Height of the border */
-    background-color: #007bff; /* Accent color */
-    margin: 10px auto 0; /* Centered with space above */
-    border-radius: 2px;
-}
-
-.section-description {
-    font-size: 1.25rem;
-    color: #ddd; /* Lighter text color */
-    margin-bottom: 40px; /* Space below the description */
-}
-
-/* Features Wrapper */
-.features-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Feature Box */
-.feature-box {
-    background-color: #444; /* Darker background for feature boxes */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside the box */
-    margin: 15px; /* Space between boxes */
-    transition: border-color 0.3s ease; /* Smooth border color transition */
-    border: 2px solid transparent; /* Default border style */
-    text-align: center; /* Center text within each box */
-    width: 300px; /* Fixed width for each feature box */
-}
-
-/* Hover Effect for Feature Boxes */
-.feature-box:hover {
-    border-color: #007bff; /* Blue border on hover */
-}
-
-/* Feature Box Title */
-.feature-title {
-    font-size: 1.5rem;
-    margin: 15px 0;
-}
-
-/* Feature Icon */
-.feature-icon {
-    font-size: 2rem; /* Adjust icon size */
-    margin-bottom: 15px; /* Space below the icon */
-}
-
-.feature-description {
-    font-size: 1rem;
-    color: #ddd; /* Lighter text color */
-}
-
-.nav-tabs {
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid #333; /* Border below the tabs */
-}
-
-.nav-link {
-    color: #ddd; /* Tab text color */
-    font-size: 1rem;
-    padding: 10px 15px;
-    border: 1px solid transparent; /* Invisible border for spacing */
-}
-
-.nav-link.active {
-    color: #007bff; /* Active tab text color */
-    border-color: #007bff; /* Bottom border color for active tab */
-}
-
-.nav-link:hover {
-    color: #fff; /* Tab text color on hover */
-}
-
-/* Footer Icons */
-.footer-icon {
-    color: #555; /* Gray icon color */
-    font-size: 1.25rem; /* Icon size */
-    margin-right: 10px; /* Space between icon and text */
-}
-
-.footer-contact {
-    list-style: none; /* Remove bullet points */
-    padding: 0;
-}
-
-.footer-contact li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; /* Space between contact items */
-}
-
-.footer-contact a {
-    color: #ddd; /* Light text color for contact links */
-    text-decoration: none; /* Remove underline */
-    margin-left: 10px; /* Space between icon and text */
-}
-
-.footer-contact a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-/* Footer Bottom */
-.footer-bottom {
-    border-top: 1px solid #333; /* Border at the top of the bottom section */
-    padding-top: 20px; /* Space above the text */
-    color: #bbb; /* Lighter text color */
-}
-
-.footer-bottom p {
-    margin: 0;
-}
-
-.footer-bottom a {
-    color: #007bff; /* Link color */
-    text-decoration: none; /* Remove underline */
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-/* Responsive adjustments */
-@media (max-width: 767.98px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-description {
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-
-    .cta-buttons .btn-main, .cta-buttons .btn-secondary {
-        font-size: 1rem;
-        padding: 8px 20px;
-    }
-
-    .pricing-box {
-        width: 100%; /* Full width on smaller screens */
-    }
-
-    .navbar-nav {
-        display: block; /* Stack nav items vertically */
-        text-align: center; /* Center text in nav items */
-    }
-
-    .btn-primary {
-        position: static; /* Reset position for button on small screens */
-        margin-left: 0; /* Remove margin */
-        margin-top: 1rem; /* Add top margin */
-    }
-}
-
-@media (max-width: 991.98px) {
-    .section-title {
-        font-size: 2rem; /* Adjust title size for medium screens */
-    }
-
-    .section-description {
-        padding: 0 20px; /* Reduce horizontal padding */
     }
 }
