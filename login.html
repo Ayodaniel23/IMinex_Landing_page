@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/font-size/font-size.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/margin/margin.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/padding/padding.css">
+    <style>
+        .bg-img {
+            background: url('static/images/bg.png');
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-img">
+        <div class="content">
+            <div class="brand-name">IMinex</div>
+            <div class="welcome-text">Login to your account</div>
+            <form action="#" aria-labelledby="login-form">
+            <!-- Phone field -->
+                <div class="phone-field" style="position: relative; display: flex; align-items: center; margin-bottom: 15px; background: transparent;">
+                    <div style="position: relative; margin-right: 10px; background: transparent; height: 45px;">
+                        <button id="country-code-btn" aria-haspopup="true" aria-expanded="false" style="background: rgba(255, 255, 255, 0.2); border: 1px solid transparent; color: white; padding: 5px; width: 80px; height: 100%; font-size: 14px; line-height: 45px; border-radius: 0; outline: none; display: flex; align-items: center; justify-content: space-between; cursor: pointer; position: relative;">
+                            <img id="country-flag" src="https://flagcdn.com/us.svg" style="width: 23px; height: 23px; margin-right: 4px;" alt="Flag">
+                            <span id="country-code-text" style="font-size: 14px;">+1</span>
+                            <i class="fa fa-caret-down" style="margin-left: 5px; color: white;"></i>
+                        </button>
+                        <div id="country-code-dropdown" style="display: none; position: absolute; top: 100%; left: 0; color: white; background: rgb(0, 0, 0); border: 1px solid rgba(255, 255, 255, 0.2); width: 307px; max-height: 250px; overflow-y: auto; z-index: 1000;">
+                        </div>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.2); height: 45px; flex: 1;">
+                        <div style="display: flex; align-items: center; height: 100%;">
+                            <span style="color: #ffffff; width: 20px; margin-left: 10px; line-height: 30px;">
+                                <i class="fa fa-phone" style="color: white; transform: rotate(0deg);"></i>
+                            </span>
+                            <label for="phone" class="visually-hidden">Phone number</label>
+                            <input type="tel" id="phone" placeholder="Phone number" required aria-required="true" style="height: 100%; width: calc(100% - 50px); background: transparent; border: 1px; color: #ffffff; font-size: 16px; font-family: 'Poppins', sans-serif; padding-left: 5px; border-radius: 0; outline: none;">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Password field -->
+                <div class="field" style="position: relative;">
+                    <span><i class="fa fa-lock"></i></span>
+                    <label for="password" class="visually-hidden">Enter your password</label>
+                    <input type="password" id="password" placeholder="Enter your password" aria-required="true" required style="border: 1px; padding-right: 50px;">
+                    <i class="fa fa-eye" id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" onclick="togglePasswordVisibility('password')"></i>
+                </div>
+
+                <!-- Login Button -->
+                <div class="field">
+                    <input type="submit" value="Login" style="background-color: #3498db; color: white;">
+                </div>
+
+                <!-- Signup link -->
+                <div class="signup">
+                    <p>Don't have an account? <a href="signup.html">Sign up now</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #000; padding: 10px 0; text-align: center; color: #ffffff; z-index: 2; position: relative; flex-shrink: 0;">
+        <p>
+            <a href="privacy.html" style="color: #ffffff; text-decoration: none;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#ffffff'">
+                Privacy Policy
+            </a> | 
+            <a href="terms.html" style="color: #ffffff; text-decoration: none;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#ffffff'">
+                Terms and Conditions
+            </a> | 
+            <a href="contact.html" style="color: #ffffff; text-decoration: none;" onmouseover="this.style.color='#3498db'" onmouseout="this.style.color='#ffffff'">
+                Contact Us
+            </a>
+        </p>
+    </footer>
+    <script src="static/js/login.js"></script>
+</body>
+</html>
