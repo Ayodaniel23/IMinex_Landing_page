@@ -23,6 +23,7 @@ body {
     color: var(--background-light); /* Ensuring text color contrasts with background */
     background-color: var(--background-dark);
     overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
 }
 
 /* Accessibility Focus Styles */
@@ -380,6 +381,14 @@ footer a:hover {
 }
 
 @media (max-width: 767.98px) {
+    #hero {
+        height: 60vh;
+    }
+
+    .navbar .btn-primary {
+        display: none; /* Hide the button on mobile view */
+    }
+
     .how-it-works .section-title {
         font-size: 2rem; /* Smaller title on tablets */
     }
@@ -463,13 +472,11 @@ footer a:hover {
     }
 }
 
-@media (max-width: 991.98px) {
-    .navbar .btn-primary {
-        display: none; /* Hide the button on mobile view */
+@media (min-width: 767.98px) {
+    .pricing-image{
+        max-height: 250px;
     }
-}
 
-@media (min-width: 991.98px) {
     .section-title {
         font-size: 2rem; /* Adjust title size for medium screens */
     }
@@ -480,5 +487,6 @@ footer a:hover {
 
     .pricing-box {
         width: 100%; /* Full width on smaller screens */
+        padding-bottom: 20px;
     }
 }
