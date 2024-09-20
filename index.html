@@ -1,4 +1,4 @@
-<!-- Internal css was used due to css low specitivity -->
+<!-- Inline css was used due to css low specitivity -->
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -139,29 +139,61 @@
         /* Ensure the toggler is on the right on mobile screens */
         @media (max-width: 991.98px) {
             .navbar-toggler {
+                margin-top: 15px;
                 margin-left: auto; /* Push toggler to the right */
             }
 
-            .navbar {
-                padding: 0 15px 15px 0; /* Maintain padding */
+            .navbar-brand {
+                transform: translateY(-40%);
             }
+
+            .navbar {
+                padding: 0 15px 10px 0; /* Maintain padding */
+            }
+
+            .navbar-toggler:focus {
+                outline: none; /* Remove default focus outline */
+                box-shadow: none; /* Add glow effect */
+            }            
 
             .navbar-collapse {
+                padding-top: 0;
                 width: 100%; /* Ensure collapsible content takes full width */
+                display: flex; /* Use flexbox for layout */
+                flex-direction: column; /* Stack links vertically */
+                align-items: center; /* Center align items */
+                position: absolute; /* Position it absolutely */
+                top: 57px; /* Adjust based on navbar height */
+                left: 0;
+                background: #343a40; /* Optional: background color for visibility */
+                z-index: 1000; /* Ensure it stays above other content */
             }
 
-            /* Align toggler with brand and other items */
-            .navbar-brand, .navbar-toggler {
-                position: relative;
-                transform: none; /* Reset vertical alignment */
+            .navbar-nav {
+                margin-left: 15px;
+                flex-direction: column; /* Stack the nav items */
+                width: 100%; /* Ensure full width for nav items */
+                padding: 10px 0; /* Add some padding for better spacing */
+            }
+
+            .nav-item {
+                width: 100%; /* Make nav items take full width */
+                text-align: left; /* Center text */
+            }
+
+            .navbar-nav .nav-item {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .cta-buttons {
+                margin-left: 15px;
+                flex-direction: column; /* Stack buttons vertically */
+                align-items: center; /* Center buttons */
+                gap: 10px; /* Adjust gap as needed */
             }
         }
-            
-            .cta-buttons {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-            }
+
     </style>
 </head>
 <body>
@@ -174,7 +206,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" aria-current="page">Home</a>
+                        <a class="nav-link" href="landing.html" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#how-it-works">How it works</a>
@@ -186,9 +218,12 @@
                         <a class="nav-link" href="#pricing">Investment options</a>
                     </li>
                 </ul>
-                <a href="signup.html" class="btn btn-primary ml-3" aria-label="Sign Up">Get Started</a>
+                <div class="d-flex align-items-center">
+                    <a href="signup.html" class="btn btn-primary ml-3" aria-label="Sign Up">Get Started</a>
+                </div>
             </div>
         </nav>
+        
 
         <!-- Hero Section -->
         <section id="hero" class="hero section" role="banner">
@@ -198,6 +233,7 @@
                         <h1 class="hero-title">
                             Invest <span style="color: #3498db;">Smarter</span>, Not Harder
                         </h1>
+                        
                         <p class="hero-description">
                             Automate your investments with our cutting-edge technology.
                         </p>
