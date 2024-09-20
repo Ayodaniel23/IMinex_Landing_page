@@ -1,18 +1,3 @@
-window.addEventListener('scroll', function () {
-    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    if (window.scrollY > 200) {
-        scrollToTopBtn.classList.add('show');
-    } else {
-        scrollToTopBtn.classList.remove('show');
-    }
-});
-
-// Scroll to top on button click
-document.getElementById('scrollToTopBtn').addEventListener('click', function (e) {
-    e.preventDefault(); // Prevent default anchor behavior
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
 // Add event listener to the entire document
 function toggleDropdown() {
     const dropdownMenu = document.querySelector('.dropdown-menu');
