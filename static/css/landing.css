@@ -490,3 +490,9 @@ footer a:hover {
         padding-bottom: 20px;
     }
 }
+
+@media (max-width: 991.98px) {
+    .navbar .btn-primary {
+        display: none;
+    }
+}
